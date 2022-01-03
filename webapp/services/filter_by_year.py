@@ -33,7 +33,7 @@ def create_files_by_year_combs() -> None:
         if not df.empty:
             with open(f'./year_files_combs/{filename}.json', 'w', encoding='utf-8') as file:
                 df.to_json(file, orient='records', force_ascii=False)
-
+    print('Criado arquivos por ano: derivados')
 
 #Cria os arquivos por ano (diesel)
 def create_files_by_year_diesel() -> None:
@@ -53,5 +53,5 @@ def create_files_by_year_diesel() -> None:
         if not df.empty:
             with open(f'./year_files_diesel/{filename}.json', 'w', encoding='utf-8') as file:
                 df.to_json(file, orient='records',force_ascii=False)
-        
+    print('Criado arquivos por ano: diesel')
 

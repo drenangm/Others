@@ -32,7 +32,7 @@ def create_files_by_product_combs() -> None:
         df = df_combs_clean.query(f'product == "{product}"')
         with open(f'./products_files_combs/{filename}.json', 'w', encoding='utf-8') as file:
             df.to_json(file, orient='records', force_ascii=False)
-
+    print('Criado arquivos por produto: derivados')
 
 #Cria os arquivos por produto (diesel)
 def create_files_by_product_diesel() -> None:
@@ -52,3 +52,4 @@ def create_files_by_product_diesel() -> None:
         df = df_diesel_clean.query(f'product == "{product}"')
         df.to_json(f'./products_files_diesel/{filename}.json', orient='records')
 
+    print('Criado arquivos por produto: diesel')

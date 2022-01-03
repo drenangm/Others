@@ -5,6 +5,7 @@ from typing import List
 import os
 import unidecode
 
+#Limpa dataframe
 def clean_dataframe(df : pd.DataFrame) -> pd.DataFrame:
     df_clean = create_yearmonth_col(df)
     df_clean = create_unit_col(df_clean)
@@ -14,6 +15,7 @@ def clean_dataframe(df : pd.DataFrame) -> pd.DataFrame:
     return df_clean
 
 
+#Criar arquivos por uf derivados
 def create_files_by_uf_combs() -> None:
     df_combs = pd.read_csv('./csv_files/data_source1.csv', delimiter=';')
     df_combs = filter_vendas(df_combs)
@@ -31,7 +33,10 @@ def create_files_by_uf_combs() -> None:
         df = df_combs_clean.query(f'uf == "{uf}"')
         with open(f'./ufs_files_combs/{filename}.json', 'w', encoding='utf-8') as file:
             df.to_json(file, orient='records', force_ascii=False)
+    print('Criado arquivos por UF: derivados')
 
+
+#Criar arquivos por uf diesel
 def create_files_by_uf_diesel() -> None:
     df_diesel = pd.read_csv('./csv_files/data_source0.csv', delimiter=';')
     df_diesel = filter_vendas(df_diesel)
@@ -48,4 +53,4 @@ def create_files_by_uf_diesel() -> None:
         filename = unidecode.unidecode(uf.lower().replace(' ', ''))
         df = df_diesel_clean.query(f'uf == "{uf}"')
         df.to_json(f'./ufs_files_diesel/{filename}.json', orient='records')
-
+    print('Criado arquivos por UF: diesel')

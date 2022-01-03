@@ -9,3 +9,5 @@ The only way that i know that i can extract cache from pivot tables is if the fi
 ### Where can i know more about the endpoints?
 There is a file called `Docs_API.md` at the main directory where you can find all the endpoints and how to use then. 
 
+### Observation
+The API was tested using postman to send the requests.
