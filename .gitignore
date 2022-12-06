@@ -1,9 +1,0 @@
-/Lib
-/Scripts
-/Lib
-/logs
-/include
-/__pycache__
-*.pyc
-/csv_files
-pyvenv.cfg
